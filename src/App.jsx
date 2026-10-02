@@ -4,6 +4,8 @@ import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import './App.css';
 
+import Button from './components/Button/Button'; // const Btn = {default: Button}.default;
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -21,16 +23,23 @@ function App() {
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
         </div>
-        <button
+        <Button
           type="button"
           className="counter"
-          onClick={() => setCount((count) => count + 1)}
+          handleClick={(event_) => {
+            console.log(event_);
+            setCount((count) => count + 1);
+          }}
         >
           Count is {count}
-        </button>
+        </Button>
       </section>
 
       <div className="ticks"></div>
+
+      <Button name="TestName" age={30}>
+        Click Me
+      </Button>
 
       <section id="next-steps">
         <div id="docs">
