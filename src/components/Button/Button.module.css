@@ -1,0 +1,12 @@
+.button {
+  color: red;
+  background-color: black;
+  border-radius: 8px;
+  min-width: 150px;
+  height: 35px;
+
+  &:hover {
+    color: pink;
+    background-color: #333232;
+  }
+}
