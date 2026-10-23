@@ -1,18 +1,13 @@
 import styles from './List.module.css';
 import ListItem from './components/ListItem';
-import { useEffect, useState } from 'react';
+import useFetchUsers from '../../hooks/useFetchUsers';
 
 const List = () => {
-  const [items, setItems] = useState([]);
+  const { isLoading, users: items } = useFetchUsers();
 
-  useEffect(() => {
-    fetch('https://dummyjson.com/users')
-      .then((response) => response.json())
-      .then((data) => setItems(data.users));
-    //
-  }, []);
-
-  return (
+  return isLoading ? (
+    <h2>Loading...</h2>
+  ) : (
     <ul className={styles.list}>
       {items.map((item, index) => (
         <ListItem key={index}>{item.firstName}</ListItem>
